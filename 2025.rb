@@ -24,10 +24,28 @@ width.times do |step|
   end
   puts "\e[H\e[2J"
   display_lines.each{ |line| puts line}
-  sleep(0.1)
+  sleep(0.05)
 end
 
 
 # 最終状態を表示
 puts "\e[H\e[2J"
 lines.each { |line| puts line }
+sleep(1)
+
+this_year = artii.asciify(new_year)
+output_this_year = this_year.split("\n")
+
+def output_new_year(height,output_this_year,lines)
+  height.times do |i|
+    lines[i] = output_this_year[i]
+    puts "\e[H\e[2J"
+
+    lines.each do |line|
+      puts line
+    end
+    sleep(0.5)
+  end
+end
+
+output_new_year(height, output_this_year, lines)
